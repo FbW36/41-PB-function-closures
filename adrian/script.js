@@ -28,4 +28,4 @@ let multiplyBy3 = multiplier(3);
   if (retirAge <= currAge) return "You're already retired";
 
   return totalSaved;
-})();
+})(40, 65, 2000, 5);

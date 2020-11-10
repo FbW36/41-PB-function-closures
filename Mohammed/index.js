@@ -49,9 +49,16 @@ function moneySaved(callback)
     let salary = 2000;
     let savingRatio = 0.05;
     
-    let savingYears = retiredAge - currentAge; 
+    if (currentAge >= retiredAge)
+    {
+        console.log("You're already retired!");
+    }
+    else
+    {
+        let savingYears = retiredAge - currentAge; 
     
-    return callback(savingYears, salary, savingRatio);
+        return callback(savingYears, salary, savingRatio);
+    }
 }
 
 console.log(moneySaved(function(savingYears, salary, savingRatio)

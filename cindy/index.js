@@ -6,16 +6,23 @@
 // returns 7
 
 function sum(a) {
-    return function(b) {
+    return function addition(b) {
       return a + b;
     };
   }
-  console.log( sum(3)(4));
+  console.log(sum(3)(4));
 
 //2. Multiply
 // Write a function multiplier that uses a closure to perform multiplication. However, the outer function should be stored in a variable which is then called.
 multiplier = num => { return 10 * num };
-console.log(multiplier(100));
+console.log(multiplier(5));
+
+
+//  function multiplier(factor){
+//    console.log(timesTwo(6));
+//    return number => number * factor
+//  }
+//  const timesTwo = multiplier(2)
 
 //3. Calculate Money Saved till Pension Day!
 // Write a function that accepts several parameters and calculates the number of money that will have been saved as pension until a person retires. The function should be self invoked and should have the following parameters:
@@ -29,14 +36,10 @@ console.log(multiplier(100));
 
 // Example: A lady is 40 years old, she retires at 65, she earns $2000 per month and she saves the 5% of it. How much money will she have saved until she retires?
 // Output: $30000
-
-
-// function moneySaved(){
-//     current_age: 60,
-//     retirement_age: 80,
-//     monthly_wage:1000,
-//     percentage: 10%
-
-// }
-
-// moneySaved()
+(function money(currentAge, retirementAge,monthlyWage,percentage){
+  const yearsToSave = retirementAge - currentAge;
+  const monthsToSave = yearsToSave * 12 //months
+  const monthlySaving = (monthlyWage * percentage)/100
+  const totalSave = monthlySaving * monthsToSave
+  console.log(totalSave);
+})(40, 65, 2000, 5);

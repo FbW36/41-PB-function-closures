@@ -9,10 +9,25 @@
 // // returns 7
 // ```
 
+function add(a) {
+  return function add(b) {
+    return a + b;
+  };
+}
+console.log("add()() :>> ", add(3)(4)); //add()() :>>  7
+
 // #### 2. Multiply
 
 // - Write a function `multiplier` that uses a closure to perform multiplication. However, the outer function should be stored in a variable which is then called.
 
+function multiplier(num) {
+  return function (num1) {
+    return num * num1;
+  };
+}
+let mal = multiplier;
+
+console.log("mal()() :>> ", mal(2)(8));
 // #### 3. Calculate Money Saved till Pension Day!
 
 // Write a function that accepts several parameters and calculates the number of money that will have been saved as pension until a person retires. The function should be self invoked and should have the following parameters:
@@ -27,3 +42,14 @@
 
 // - Example: A lady is 40 years old, she retires at 65, she earns $2000 per month and she saves the 5% of it. How much money will she have saved until she retires?
 // - Output: $30000
+
+let toRent = function pension(current, retirement, monthly, percent) {
+  let yearsToRetire = retirement - current;
+  let moneyYear = ((monthly * percent) / 100) * 12;
+  if (yearsToRetire < 0) {
+    return "You're already retired!'";
+  } else {
+    return moneyYear * yearsToRetire;
+  }
+};
+console.log("toRent :>> ", toRent(70, 65, 2000, 5));

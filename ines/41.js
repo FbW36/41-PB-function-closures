@@ -13,7 +13,7 @@ console.log(add3(4));
 //2
 function multiply(x) {
   return function (y) {
-    return x + y;
+    return x * y;
   };
 }
 
